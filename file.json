@@ -1,0 +1,17 @@
+{
+    "Label1": {
+        "Type": "Label",
+        "Text": "Hello",
+        "TTK": true
+    },
+    "Entry1": {
+        "Type": "Entry",
+        "TTK": true
+    },
+    "Button1": {
+        "Type": "Button",
+        "Text": "Again",
+        "Bind": "say",
+        "TTK": true
+    }
+}
