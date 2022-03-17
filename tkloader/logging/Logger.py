@@ -21,8 +21,8 @@ BOLD = '\033[1m'
 UNDERLINE = '\033[4m'
 END = '\033[0m'
 '''
-__console_format: logging.Formatter = logging.Formatter('\033[91m[\033[0m\033[1m\033[93m%(levelname)s\033[0m   \033[91m] \033[91m[\033[0m\033[1m\033[93m%(name)s\033[0m   \033[91m]\033[0m \033[93m- %(message)s\033[0m')
-#__console_format: logging.Formatter = logging.Formatter('\033[91m[\033[0m\033[1m\033[92m%(levelname)s\033[0m   \033[91m] [\033[1m%(name)s\033[0m   \033[91m] - %(message)s\033[0m')
+#__console_format: logging.Formatter = logging.Formatter('\033[91m[\033[0m\033[1m\033[93m%(levelname)s\033[0m   \033[91m] \033[91m[\033[0m\033[1m\033[93m%(name)s\033[0m   \033[91m]\033[0m \033[93m- %(message)s\033[0m')
+__console_format: logging.Formatter = logging.Formatter('\033[91m[\033[0m\033[1m\033[92m%(levelname)s\033[0m   \033[91m] [\033[1m%(name)s\033[0m   \033[91m] - %(message)s\033[0m')
 __file_format: logging.Formatter = logging.Formatter('[%(levelname)s   ] [%(name)s   ] - %(message)s')
 
 __console_handler.setFormatter(__console_format)
