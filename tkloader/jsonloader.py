@@ -75,16 +75,25 @@ class Loader:
                         _entry = ttk.Entry(self.__root)
                     else:
                         _entry = Entry(self.__root)
+                    try:
+                        obj['TextVar']
+                        self.__bind(_entry, obj)
+                    except KeyError: pass
                     _entry.pack()
                 case _:
                     raise WidgetError(obj["Type"])
+        Logger.info("TkLoader has successfully loaded the JSON File")
         return SUCCESS
 
-    def __bind(self, button: Button | ttk.Button, obj: dict[str, any]) -> int:
+    def __bind(self, widget: Widget | ttk.Widget, obj: dict[str, any]) -> int:
         Logger.info("Binding actions...")
+        _widgetType: type = type(widget)
         try:
-            button.config(command=eval(f"__main__.{obj['Bind']}"))
-        except AttributeError:
-            raise EventError("Event listener in JSON File is pointing to a null method")
-        Logger.info("TkLoader has successfully loaded the JSON File")
+            if _widgetType == Button or _widgetType == ttk.Button:
+                widget.config(command=eval(f"__main__.{obj['Bind']}"))
+            elif _widgetType == Entry or _widgetType == ttk.Entry:
+                widget.config(textvariable=eval(f"__main__.{obj['TextVar']}"))
+            else:
+                Logger.error(f"Invalid widget type: {_widgetType}")
+        except AttributeError: print("Error")
         return SUCCESS

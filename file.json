@@ -13,11 +13,13 @@
         },
         "Entry1": {
             "Type": "Entry",
+            "TextVar": "txt",
             "TTK": true
         },
         "Button1": {
             "Type": "Button",
             "Text": "Again",
+            "Bind": "say",
             "TTK": true
         }
     }
