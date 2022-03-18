@@ -1,6 +1,6 @@
 import json
 import __main__
-from tkinter import Button, Entry, Label, Tk, Widget, ttk
+from tkinter import Button, Entry, Label, Tk, Toplevel, Widget, ttk
 
 from tkloader.constants import IGNORE, LOAD_FILENOTFOUND, LOAD_WIDGETERROR, SUCCESS, WIDGET_INVALID
 from tkloader.errors.eventerror import EventError
@@ -11,7 +11,7 @@ class Loader:
     
     __root: Tk | Widget
 
-    def __init__(self, root: Tk | Widget) -> None:
+    def __init__(self, root: Tk | Toplevel | Widget) -> None:
         Logger.info("Initializing JSON Loader")
         self.__root = root
 
